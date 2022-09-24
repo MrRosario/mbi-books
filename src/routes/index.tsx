@@ -1,10 +1,18 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons'
+import { Image } from 'react-native';
 import { HomeStack, FavoriteStack, SearchStack } from 'routes/Stacks';
+import Logo from '@assets/Logo.png';
 
 const Tab = createBottomTabNavigator();
-
+const headerConfig = () => (
+    {
+      headerTitle: () => <Image source={Logo} />,
+      headerBackTitleVisible: false,
+      headerTitleAlign: "left",
+    }
+);
 const Routes = () => (
     <NavigationContainer>
         <Tab.Navigator initialRouteName="Home" screenOptions={({ route }) => ({
@@ -36,6 +44,7 @@ const Routes = () => (
             <Tab.Screen 
                 name="Home" 
                 component={HomeStack} 
+                options={headerConfig()}
             />
             <Tab.Screen 
                 name="Search" 

@@ -5,6 +5,7 @@ import FavoriteScreen from '@screens/Favorite';
 import SearchScreen from '@screens/Search'; 
 import DetailsScreen from '@screens/Details';
 
+
 const Stack = createNativeStackNavigator();
 
 type Props = {
@@ -22,17 +23,18 @@ const StackNavigatorContainer: FC<Props> = ({ children, routeName }: Props) => (
     {children}
   </Stack.Navigator>
 );
+
+
 const HomeStack = () => (
   <StackNavigatorContainer routeName="HomeScreen" >
     <Stack.Screen
       name="HomeScreen"
       component={HomeScreen}
-      options={{ title: '' }}
     />
     <Stack.Screen
       name="DetailsScreen"
       component={DetailsScreen}
-      options={{ title: '' }}
+      options={{ headerShown: false }}
     />
   </StackNavigatorContainer>
 );
