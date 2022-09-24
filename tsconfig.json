@@ -47,6 +47,9 @@
       ],
       "@styles/*": [
         "src/styles/*"
+      ],
+      "@routes/*": [
+        "src/routes/*"
       ]
     }
   },
