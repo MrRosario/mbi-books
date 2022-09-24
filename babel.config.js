@@ -20,6 +20,7 @@ module.exports = function(api) {
                "@styles": "./src/styles",
                "@utils": "./src/utils",
                "@routes": "./src/routes",
+               "@setup": "./src/setup",
              }
            }
        ]

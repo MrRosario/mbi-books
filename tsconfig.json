@@ -50,6 +50,9 @@
       ],
       "@routes/*": [
         "src/routes/*"
+      ],
+      "@setup/*": [
+        "src/setup/*"
       ]
     }
   },
