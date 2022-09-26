@@ -4,6 +4,7 @@ import { Ionicons } from '@expo/vector-icons'
 import { Image } from 'react-native';
 import { HomeStack, FavoriteStack, SearchStack } from 'routes/Stacks';
 import Logo from '@assets/Logo.png';
+import { Colors } from 'styles';
 
 const Tab = createBottomTabNavigator();
 const headerConfig = () => (
@@ -37,8 +38,8 @@ const Routes = () => (
 
                 return <Ionicons name={iconName} size={size} color={color} />;
             },
-            tabBarActiveTintColor: '#1F70C1',
-            tabBarInactiveTintColor: 'black',
+            tabBarActiveTintColor: Colors.PRIMARY,
+            tabBarInactiveTintColor: Colors.BLACK,
             })}
         >
             <Tab.Screen 
