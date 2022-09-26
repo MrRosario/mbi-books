@@ -1,14 +1,18 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { StyleSheet, SafeAreaView, StatusBar, View } from 'react-native';
+import { StyleSheet, SafeAreaView, View } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
 import * as SplashScreen from "expo-splash-screen";
 
 import Routes from '@routes';
 import { isAndroid } from '@utils/constants';
 import fontsSetup from 'setup/fonts';
+import { QueryClient, QueryClientProvider } from 'react-query';
+
+const queryClient = new QueryClient();
 
 export default function App() {
   const [isReady, setIsReady] = useState(false);
-  
+
   useEffect(() => {
     async function prepare() {
       try {
@@ -32,9 +36,11 @@ export default function App() {
 
   return (
     <SafeAreaView style={styles.safeArea}>
+      <StatusBar style="auto" />
       <View style={{ flex: 1 }} onLayout={onLayoutRootView}>
-        <StatusBar style="auto" />
-        <Routes />
+        <QueryClientProvider client={queryClient}>
+          <Routes />
+        </QueryClientProvider>
       </View>
     </SafeAreaView>
   );
@@ -43,7 +49,6 @@ export default function App() {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: "white",
     paddingTop: isAndroid ? StatusBar.currentHeight : 0,
   },
 });
