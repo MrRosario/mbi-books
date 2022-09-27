@@ -17,7 +17,6 @@ import { DataTable } from 'react-native-paper';
 import Label from "components/Label";
 import FavoriteButton from '@components/FavoriteButton';
 import * as WebBrowser from 'expo-web-browser';
-import { fechBooksLocally } from '@utils/constants';
 import { fechBook } from '@services/localStorage'
 
 const Details = ({ route }: any) => {
@@ -32,7 +31,7 @@ const Details = ({ route }: any) => {
 
     const fechBooksLocally = async () => {
         const data = await fechBook();
-        const items =  data.map((item: any) => item)
+        const items = data !== null ? data.map((item: any) => item) : []
         setLocalData(items)
     }
 
@@ -67,11 +66,6 @@ const Details = ({ route }: any) => {
         publisher,
         thumbnail: imageLinks.thumbnail
     }
-
-    console.log('volumeInfo: ', data)
-    console.log('localData: ', localData)
-    console.log('isBookStored: ', isBookStored)
-    
 
     const ReadMore = () => (
         <TouchableWithoutFeedback onPress={() => setIsTruncated(!isTruncated)}>

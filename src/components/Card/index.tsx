@@ -8,17 +8,14 @@ type Props = {
     author: String[], 
     publisher: String,
     id: string,
-    subtitle: String,
     imgUrl: any,
     navigation: any
 }
 
-const Card: FC<Props> = ({title, author, publisher, imgUrl, id, navigation, subtitle}) => {
+const Card: FC<Props> = ({title, author, publisher, imgUrl, id, navigation}) => {
     const goToDetailsPage = () => {
         navigation.navigate('DetailsScreen', {
             bookId: id,
-            title: title,
-            subtitle: subtitle,
           });
     }
 

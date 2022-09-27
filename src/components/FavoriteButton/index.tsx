@@ -21,8 +21,7 @@ type Props = {
 
 const FavoriteButton: FC<Props> = ({ isBookStored, isFavorited, setIsFavorited, size, data }) => {
 
-    console.log('isFavorited: ', isFavorited);
-    console.log('isBookStored: ', isBookStored);
+
 
     const toggleStoreBook = async () => {
         if(!isBookStored){

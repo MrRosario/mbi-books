@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Label from "components/Label";
 import Layout from '@components/Layout';
 import { StyleSheet, View, FlatList } from "react-native";
@@ -13,10 +13,6 @@ const Home = ({ navigation }: any) => {
     
     const {isLoading, isSuccess, data } = featureBook();
     const featuredBook = data?.items;
-
-    // console.log('isLoading: ', isLoading);
-    // console.log('isSuccess: ', isSuccess);
-    console.log('featuredBook: ', featuredBook);
 
     const renderItem = ({ item }: any) => {
         const { authors, subtitle, publisher, title, imageLinks } = item?.volumeInfo;
@@ -33,6 +29,7 @@ const Home = ({ navigation }: any) => {
         );
     }
 
+    console.log('featuredBook: ', featuredBook)
     return (
         <Layout>
             <Label 
