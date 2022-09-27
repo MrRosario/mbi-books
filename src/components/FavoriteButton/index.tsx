@@ -20,21 +20,18 @@ type Props = {
 }
 
 const FavoriteButton: FC<Props> = ({ isBookStored, isFavorited, setIsFavorited, size, data }) => {
-
-
-
     const toggleStoreBook = async () => {
         if(!isBookStored){
             await storeBook(data);
-            setIsFavorited(true)
+            setIsFavorited(!isFavorited)
             return;
         }
         await removeBook(data.id)
-        setIsFavorited(false)
+        setIsFavorited(!isFavorited)
     }
 
     const HeaderIcon = () => {
-        if(isFavorited || isBookStored) {
+        if(isBookStored) {
             return <Ionicons name='heart' size={size} color={Colors.RED} />
         } 
         return <Ionicons name='heart-outline' size={size} color={Colors.BLACK} />

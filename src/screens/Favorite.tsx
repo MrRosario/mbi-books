@@ -84,7 +84,8 @@ const Favorite = ({ navigation }: any) => {
 
 const styles = StyleSheet.create({
     container: {
-        paddingVertical: 20
+        paddingTop: 20,
+        paddingBottom: 120
     },
     text: {
         fontFamily: Font.FAMILY.THIN,

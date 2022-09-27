@@ -9,15 +9,18 @@ import {
     TouchableOpacity
 } from 'react-native';
 import { useQuery } from 'react-query';
-import Layout from "components/Layout";
-import { getBookDetails } from '@services/api'
-import Spinner from "components/Spinner";
-import { Colors, Font, Spacing } from "styles";
+import * as WebBrowser from 'expo-web-browser';
 import { DataTable } from 'react-native-paper';
+
+import { getBookDetails } from '@services/api'
+import { Colors, Font, Spacing } from "styles";
+import { fechBook } from '@services/localStorage'
+
+import Spinner from "components/Spinner";
 import Label from "components/Label";
 import FavoriteButton from '@components/FavoriteButton';
-import * as WebBrowser from 'expo-web-browser';
-import { fechBook } from '@services/localStorage'
+import Layout from "components/Layout";
+
 
 const Details = ({ route }: any) => {
     const [isTruncated, setIsTruncated] = useState(true);
@@ -37,7 +40,7 @@ const Details = ({ route }: any) => {
 
     useEffect(() => {
         fechBooksLocally()
-    },[])
+    },[isFavorited])
 
     const isBookStored = localData.some(((item:any) => item.id === bookId))
 
@@ -84,7 +87,7 @@ const Details = ({ route }: any) => {
     return (
         <ScrollView>
             <Layout>
-                { isLoading && <Spinner /> }
+                { isLoading && (<Spinner />) }
                 { isSuccess && (
                     <View>
                         <View style={styles.imageWrapper}>
