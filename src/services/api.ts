@@ -21,7 +21,7 @@ const searchBook = (searchTerm:String, page: Number) =>
     });
 
 const featuredBooks = () => 
-  fetch(`${BASE_URL}?q=emprendedorismo&orderBy=newest&maxResults=10&key=${API_KEY}`)
+  fetch(`${BASE_URL}?q=milionario&orderBy=newest&maxResults=10&key=${API_KEY}`)
   .then((response) => response.json())
   .then((json) => {
     return json;

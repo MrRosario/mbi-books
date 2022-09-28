@@ -13,19 +13,19 @@ import Card from "components/Card";
 
 const Favorite = ({ navigation }: any) => {
 
-    const [localData, setLocalData] = useState<any>([]);
+    const [localData, setLocalData] = useState<String[]>([]);
     const isFocused = useIsFocused();
 
     const fechBooksLocally = async () => {
         const data = await fechBook();
-        const items = data !== null ? data.map((item: any) => item) : []
+        const items = data !== null ? data.map((item: String[]) => item) : []
         setLocalData(items)
     }
     useEffect(() => {
         fechBooksLocally();
     },[isFocused]);
 
-    const hasData:any = localData.length > 0;
+    const hasData: boolean = localData.length > 0;
 
     const renderItem = ({ item }: any) => {
         const { author, publisher, title, thumbnail } = item;

@@ -1,22 +1,16 @@
 import React, { FC } from "react";
 import { TouchableOpacity, StyleSheet } from 'react-native';
 import { Colors } from "styles";
-import { Ionicons } from '@expo/vector-icons'
-import { storeBook, removeBook } from '@services/localStorage'
+import { Ionicons } from '@expo/vector-icons';
+import { storeBook, removeBook } from '@services/localStorage';
+import { IStorage } from '@services/localStorage.types';
 
-interface IValues {
-    id: String,
-    title: String,
-    thumbnail: String,
-    publisher: String,
-    author: String
-}
 type Props = {
     isFavorited: Boolean,
     setIsFavorited: (value: boolean) => void,
     isBookStored: Boolean,
     size: any,
-    data: IValues
+    data: IStorage
 }
 
 const FavoriteButton: FC<Props> = ({ isBookStored, isFavorited, setIsFavorited, size, data }) => {

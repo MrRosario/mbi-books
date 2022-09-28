@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from "react";
-type Props = {
-  searchTerm: String,
-  delay: number
-}
+
 const useDebounce = (searchTerm: String, delay: number) => {
     const [debouncedValue, setDebouncedValue] = useState(searchTerm);
 
