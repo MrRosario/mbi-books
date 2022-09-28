@@ -2,6 +2,7 @@ import React, { FC } from "react";
 import Label from "components/Label";
 import { StyleSheet, View, TouchableOpacity, Image} from "react-native";
 import { Font, Spacing, Colors } from "styles";
+import DefaultBookImage from '@assets/defaultBook.jpeg';
 
 type Props = {
     title: String, 
@@ -16,16 +17,17 @@ const Card: FC<Props> = ({title, author, publisher, imgUrl, id, navigation}) => 
     const goToDetailsPage = () => {
         navigation.navigate('DetailsScreen', {
             bookId: id,
-          });
+        });
     }
 
     return (
         <TouchableOpacity onPress={goToDetailsPage}>
             <View style={styles.card} >
-                <Image 
-                    style={styles.thumbnail} 
-                    source={{uri: imgUrl}} 
-                />
+                {
+                    imgUrl 
+                        ? ( <Image style={styles.thumbnail} source={{uri: imgUrl}} /> )
+                        : ( <Image style={styles.thumbnail} source={DefaultBookImage} /> )
+                }
                 <View style={styles.textContainer}>
                     <Label style={styles.title} label={title} numberOfLines={2} />
                     <Label style={styles.author} label={`por: ${author}`} />
@@ -56,8 +58,6 @@ const styles = StyleSheet.create({
         width: '70%',
         marginLeft: 10,
         padding: 10,
-        // borderWidth: 1,
-        // borderColor: 'black'
     },
     authorWrapper: {
         flexDirection: 'row',
