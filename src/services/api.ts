@@ -1,4 +1,4 @@
-import { API_KEY, BASE_URL } from "./apiConfig";
+import {BASE_URL, API_KEY} from '@env'
 
 const getBookDetails = (id:string) => 
   fetch(`${BASE_URL}/${id}?key=${API_KEY}`)
