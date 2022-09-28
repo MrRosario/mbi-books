@@ -13,9 +13,8 @@ import useDebounce from "hooks/useDebounce";
 
 const Search = ({ navigation }: any) => {
 
-    const [searchTerm, setSearchTerm] = useState('');
-    // const [searchResults, setSearchResults] = useState<any>([]);
-    const [page, setPage] = useState<number>(0);
+    const [searchTerm, setSearchTerm] = useState<String>('');
+    const [page, setPage] = useState<Number>(0);
 
     const debouncedSearchTerm = useDebounce(searchTerm, 500);
 
@@ -26,8 +25,6 @@ const Search = ({ navigation }: any) => {
 
     const searchResults = data?.items;
     const hasData = searchResults?.length > 0;
-
-    console.log('searchResults: ', searchResults)
 
     const renderItem = ({ item }: any) => {
         const { authors, publisher, title, imageLinks } = item?.volumeInfo;

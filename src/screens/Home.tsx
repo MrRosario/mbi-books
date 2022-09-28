@@ -28,7 +28,6 @@ const Home = ({ navigation }: any) => {
         );
     }
 
-    console.log('featuredBook: ', featuredBook)
     return (
         <Layout>
             <Label 
