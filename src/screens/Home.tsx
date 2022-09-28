@@ -15,12 +15,11 @@ const Home = ({ navigation }: any) => {
     const featuredBook = data?.items;
 
     const renderItem = ({ item }: any) => {
-        const { authors, subtitle, publisher, title, imageLinks } = item?.volumeInfo;
+        const { authors, publisher, title, imageLinks } = item?.volumeInfo;
         return (
             <Card 
                 navigation={navigation}
                 title={title}
-                subtitle={subtitle}
                 author={authors[0]} 
                 publisher={publisher} 
                 id={item.id}

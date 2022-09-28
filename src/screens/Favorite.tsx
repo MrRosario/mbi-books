@@ -41,7 +41,7 @@ const Favorite = ({ navigation }: any) => {
         );
     }
 
-    const handleDelteAll = async () => {
+    const handleDeleteAll = async () => {
         await clearAll();
         await fechBooksLocally();
     }
@@ -49,35 +49,35 @@ const Favorite = ({ navigation }: any) => {
     return (
         <Layout>
             <Label black  bigTitle label='Favoritos' />
-           <View style={styles.container}>
-                {hasData && (
-                    <View>
-                        <TouchableOpacity style={styles.iconContainer} onPress={handleDelteAll}>
-                            <Ionicons name="ios-trash" size={30} color={Colors.PRIMARY} />
-                        </TouchableOpacity>
-                        <FlatList
-                            data={localData}
-                            renderItem={renderItem}
-                            keyExtractor={item => item.id}
-                        />
-                    </View>
-                )}
-                {!hasData && (
-                    <NotFound>
-                        <Label 
-                            style={styles.text} 
-                            label="Nenhum livro favoritado, acesse a "
-                         />
-                        <TouchableOpacity onPress={() => navigation.navigate('SearchScreen')}>
-                            <Label style={[styles.text, styles.hilightedText]} bold label="busca" />
-                        </TouchableOpacity>
-                        <Label 
-                            style={styles.text} 
-                            label="para buscar e favoritar algum livro." 
-                        />
-                    </NotFound>
-                )}
-            </View>
+            <View style={styles.container}>
+                    {hasData && (
+                        <View>
+                            <TouchableOpacity style={styles.iconContainer} onPress={handleDeleteAll}>
+                                <Ionicons name="ios-trash" size={30} color={Colors.PRIMARY} />
+                            </TouchableOpacity>
+                            <FlatList
+                                data={localData}
+                                renderItem={renderItem}
+                                keyExtractor={item => item.id}
+                            />
+                        </View>
+                    )}
+                    {!hasData && (
+                        <NotFound>
+                            <Label 
+                                style={styles.text} 
+                                label="Nenhum livro favoritado, acesse a "
+                            />
+                            <TouchableOpacity onPress={() => navigation.navigate('SearchScreen')}>
+                                <Label style={[styles.text, styles.hilightedText]} bold label="busca" />
+                            </TouchableOpacity>
+                            <Label 
+                                style={styles.text} 
+                                label="para buscar e favoritar algum livro." 
+                            />
+                        </NotFound>
+                    )}
+                </View>
         </Layout>
     )
 }

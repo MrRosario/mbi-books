@@ -21,7 +21,6 @@ import Label from "components/Label";
 import FavoriteButton from '@components/FavoriteButton';
 import Layout from "components/Layout";
 
-
 const Details = ({ route }: any) => {
     const [isTruncated, setIsTruncated] = useState(true);
     const [isFavorited, setIsFavorited] = useState(false);
